@@ -19,4 +19,23 @@ describe('Binary search tree', () => {
       expect(root.right.value).toBe(67);
     });
   });
+
+  describe('Includes', () => {
+    let binaryTree;
+    beforeEach(() => {
+      binaryTree = new BinarySearchTree(array);
+    });
+
+    test('Returns true for existing value', () => {
+      expect(binaryTree.includes(6345)).toBe(true);
+    });
+
+    test('Returns false for non existing value', () => {
+      expect(binaryTree.includes(2)).toBe(false);
+    });
+
+    test('Return false if value is not provided', () => {
+      expect(binaryTree.includes()).toBe(false);
+    });
+  });
 });

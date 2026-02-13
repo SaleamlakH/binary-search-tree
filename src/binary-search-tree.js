@@ -30,4 +30,15 @@ export class BinarySearchTree {
 
     return root;
   }
+
+  includes(value) {
+    let node = this.#root;
+    while (node) {
+      if (node.value === value) return true;
+
+      node = value > node.value ? node.right : node.left;
+    }
+
+    return false;
+  }
 }
