@@ -41,4 +41,19 @@ export class BinarySearchTree {
 
     return false;
   }
+
+  insert(value) {
+    let node = this.#root;
+    while (node) {
+      if (node.value === value) return;
+
+      if (value > node.value) {
+        node.right = node.right || new Node(value);
+        node = node.right;
+      } else {
+        node.left = node.left || new Node(value);
+        node = node.left;
+      }
+    }
+  }
 }

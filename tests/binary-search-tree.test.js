@@ -38,4 +38,25 @@ describe('Binary search tree', () => {
       expect(binaryTree.includes()).toBe(false);
     });
   });
+
+  describe('Insert', () => {
+    let binaryTree;
+    beforeEach(() => {
+      binaryTree = new BinarySearchTree(array);
+    });
+
+    test('Insert new value', () => {
+      expect(binaryTree.includes(2)).toBe(false);
+
+      binaryTree.insert(2);
+      expect(binaryTree.includes(2)).toBe(true);
+    });
+
+    test('Do nothing when the value exist in the tree', () => {
+      let originalRoot = structuredClone(binaryTree.root);
+      binaryTree.insert(5);
+
+      expect(binaryTree.root).toEqual(originalRoot);
+    });
+  });
 });
